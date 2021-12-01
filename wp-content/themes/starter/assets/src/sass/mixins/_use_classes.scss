@@ -1,0 +1,321 @@
+/* =Useful Classes
+*******************************************************************************/
+.clearfix {
+    &:before, &:after{ content:""; display:table; }
+    &:after{ clear: both; }
+}
+
+.full-width {
+  width:100%;
+}
+
+.pad-hit {
+  @include pad-hit
+}
+
+.spacer-50 {
+    display: table;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.spacer-100 {
+    display: table;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.hide-mobile {
+    @media #{$small} {
+        display: none!important;
+    }
+}
+
+.hide-desktop {
+    @media #{$above-large-device} {
+        display: none;
+    }
+}
+
+/* =Modal Related Classes
+*******************************************************************************/
+.modal-window {
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0; 
+    right: 0;
+    top: 50%;
+    max-width: 1200px;
+    max-height: 0;
+    z-index: 99;
+    transform: translateY(-70%);
+    transition: .25s transform ease-in-out;
+    
+    &.show-modal {
+        max-height: 800px;
+        padding: 50px;
+        transform: translateY(-50%)!important;
+    }
+} 
+
+.form-backdrop {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    background-color: rgba(0,0,0,0.95);
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    &.active-backdrop {
+        display: block;
+    }
+}
+
+
+//iframe stuff
+.iframe-video-section {
+	display:none!important;
+	opacity:0;
+	position:fixed;
+	z-index:999;
+	top:0;
+	width:100%;
+	height:100%;
+	display:block;
+	transition:.25s opacity ease-in-out;
+}
+.iframe-video-open {
+	display:block!important;
+	opacity:1;
+}
+.iframe-video {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+    z-index: 999;
+	margin-top:150px!important;
+
+	@media #{$tablet} {
+		width:90%;
+	}
+}
+#main-vid {
+	position: absolute;
+	top: 0; 
+	left: 0;
+	width: 100%;
+	height: 100%; 
+	max-height:850px;
+    z-index: 9991;
+}
+.modal-close,.vid-close {
+	position: absolute;
+	top: -35px;
+	right: 0;
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	line-height: 30px;
+	color: white;
+	text-align: center;
+	border-radius: 0px;
+    border: 3px solid white;
+	font-size: 25px;
+	font-family: arial;
+	font-weight: bold;
+}
+.modal-close {
+    top: 0;
+}
+
+/*******************************************************************************/
+/*** SPACING & LAYOUT ***/
+/*******************************************************************************/
+
+.clearfix {
+    &:before, &:after{ content:""; display:table; }
+    &:after{ clear: both; }
+}
+
+.full-width {
+    width: 100%;
+}
+
+.max-width {
+	width: 100%;
+	//max-width: 1400px;
+	margin: 0 auto;
+}
+
+.d-table {
+	display: table;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.ta-center {
+	text-align: center;
+}
+
+.ta-right {
+	text-align: right;
+}
+
+.ta-left {
+	text-align: left;
+}
+
+.pad-hit {
+    @include pad-hit;
+}
+
+
+/* =General Element Classes
+*******************************************************************************/
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    @media #{$small} {
+        flex-direction: column;
+        justify-content: center;
+    }
+    & > div {
+        width: 48%;
+        position: relative;
+        @media #{$small} {
+            width: 100%;
+        }
+    }
+}
+
+$spaceamounts: ("auto", 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+$sides: ("": "", "t": "top", "b": "bottom", "l": "left", "r": "right", "x": "left-right", "y": "top-bottom");
+$breakpoints: (
+    "": "",
+    "xs": $mobile,
+    "sm": $tablet,
+    "md": $large-device,
+    "lg": $desktop
+);
+
+@each $breakName, $breakValue in $breakpoints {
+    @each $sideName, $sideValue in $sides {
+        @each $space in $spaceamounts {
+        
+            $property: if($sideName == "", "", -#{$sideValue});
+            $selector: "";
+  
+            @if $breakName != "" {
+                $selector: #{$sideName}-#{$breakName}-#{$space};
+            } @else {
+                $selector: #{$sideName}-#{$space};
+            }
+    
+            @if $breakName != "" {
+                @if $space == "auto" {
+                    @media #{$breakValue} {
+                        .m#{$selector} {
+                            margin#{$property}: #{$space} !important;
+                        } 
+                    }
+                } @else if $sideName == "x" {
+                    @media #{$breakValue} {
+                        .mx-#{$breakName}-#{$space} {
+                            margin-left: #{$space}px !important;
+                            margin-right: #{$space}px !important;
+                        } 
+
+                        .px-#{$breakName}-#{$space} {
+                            padding-left: #{$space}px !important;
+                            padding-right: #{$space}px !important;
+                        }
+                    }
+                } @else if $sideName == "y" {
+                    @media #{$breakValue} {
+                        .my-#{$breakName}-#{$space} {
+                            margin-top: #{$space}px !important;
+                            margin-bottom: #{$space}px !important;
+                        } 
+
+                        .py-#{$breakName}-#{$space} {
+                            padding-top: #{$space}px !important;
+                            padding-bottom: #{$space}px !important;
+                        }
+                    } 
+                } @else {
+                    @media #{$breakValue} {
+                        .m#{$selector} {
+                            margin#{$property}: #{$space}px !important;
+                        }
+                
+                        .p#{$selector} {
+                            padding#{$property}: #{$space}px !important;
+                        }
+                    }
+                }
+            } @else {
+                @if $space == "auto" {
+                    .m#{$selector} {
+                        margin#{$property}: #{$space} !important;
+                    }
+                } @else if $sideName == "x" {
+                    .mx-#{$space} {
+                        margin-left: #{$space}px !important;
+                        margin-right: #{$space}px !important;
+                    } 
+
+                    .px-#{$space} {
+                        padding-left: #{$space}px !important;
+                        padding-right: #{$space}px !important;
+                    }
+                } @else if $sideName == "y" {
+                    .my-#{$space} {
+                        margin-top: #{$space}px !important;
+                        margin-bottom: #{$space}px !important;
+                    } 
+
+                    .py-#{$space} {
+                        padding-top: #{$space}px !important;
+                        padding-bottom: #{$space}px !important;
+                    }
+                } @else {
+                    .m#{$selector} {
+                        margin#{$property}: #{$space}px !important;
+                    }
+            
+                    .p#{$selector} {
+                        padding#{$property}: #{$space}px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*******************************************************************************/
+/*** ANIMATIONS ***/
+/*******************************************************************************/
+
+.fadein {
+	-webkit-animation: fadein 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	  animation: fadein 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}

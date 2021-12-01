@@ -1,0 +1,236 @@
+********************************************************************************
+DUPLICATOR PRO PACKAGE-LOG: 2021-09-23 18:24:44
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	3.8.7.1
+WORDPRESS:	5.8.1
+PHP INFO:	7.4.9 | SAPI: apache2handler
+SERVER:		Apache/2.4.46 (Unix) OpenSSL/1.0.2u PHP/7.4.9 mod_wsgi/3.5 Python/2.7.13 mod_fastcgi/mod_fastcgi-SNAP-0910052141 mod_perl/2.0.11 Perl/v5.30.1 
+ARCHITECTURE:	64-bit 
+CLIENT KICKOFF: off 
+PHP TIME LIMIT: [7200] not allowed 
+PHP MAX MEMORY: 4294967296 (256M default) 
+RUN TYPE:	Manual
+MEMORY STACK:	36.5MB
+ARCHIVE ENGINE: Shell Zip
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP + CHUNKING (chunk size - 500 rows)
+
+TABLES: total: 18 | filtered:0 | create:18
+SCHEMA SIZE: [2375680]
+SQL CREATED: 20210923_basetemplate_cfa3773c5a7137d85846_20210923182428_database.sql
+SQL FILE SIZE: 1.11MB
+SQL FILE TIME: 2021-09-23 18:24:46
+SQL RUNTIME: 1.557 sec.
+MEMORY STACK: 8.5MB
+
+********************************************************************************
+ARCHIVE  Type=ZIP Mode=Shell
+********************************************************************************
+ARCHIVE DIR:  /Applications/MAMP/htdocs/base
+ARCHIVE FILE: 20210923_basetemplate_cfa3773c5a7137d85846_20210923182428_archive.zip
+FILTERS: *OFF*
+DIRS:  not set
+EXTS:  not set
+FILES:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	140.18MB
+STATS:	Dirs 2,715 | Files 19,047 | Total 21,762
+COMPRESSED SIZE: 44.77MB
+ARCHIVE RUNTIME: 8.139 sec.
+MEMORY STACK: 10.5MB
+DB INFO IN CREATE ARCHIV CONFIG
+DUP_PRO_DatabaseInfo Object
+(
+    [buildMode] => PHPCHUNKING
+    [charSetList] => Array
+        (
+            [0] => utf8mb4
+            [1] => utf8
+        )
+
+    [collationList] => Array
+        (
+            [0] => utf8mb4_unicode_520_ci
+            [1] => utf8_general_ci
+        )
+
+    [isTablesUpperCase] => 0
+    [isNameUpperCase] => 0
+    [name] => base
+    [tablesBaseCount] => 18
+    [tablesFinalCount] => 18
+    [tablesRowCount] => 721
+    [tablesSizeOnDisk] => 2375680
+    [tablesList] => Array
+        (
+            [wp_commentmeta] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 49152
+                )
+
+            [wp_comments] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 98304
+                )
+
+            [wp_duplicator_pro_entities] => stdClass Object
+                (
+                    [rows] => 5
+                    [size] => 32768
+                )
+
+            [wp_duplicator_pro_packages] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 32768
+                )
+
+            [wp_links] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 32768
+                )
+
+            [wp_options] => stdClass Object
+                (
+                    [rows] => 366
+                    [size] => 1130496
+                )
+
+            [wp_postmeta] => stdClass Object
+                (
+                    [rows] => 96
+                    [size] => 49152
+                )
+
+            [wp_posts] => stdClass Object
+                (
+                    [rows] => 213
+                    [size] => 360448
+                )
+
+            [wp_redirection_404] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 65536
+                )
+
+            [wp_redirection_groups] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 49152
+                )
+
+            [wp_redirection_items] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 114688
+                )
+
+            [wp_redirection_logs] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 65536
+                )
+
+            [wp_term_relationships] => stdClass Object
+                (
+                    [rows] => 8
+                    [size] => 32768
+                )
+
+            [wp_term_taxonomy] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 49152
+                )
+
+            [wp_termmeta] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 49152
+                )
+
+            [wp_terms] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 49152
+                )
+
+            [wp_usermeta] => stdClass Object
+                (
+                    [rows] => 25
+                    [size] => 49152
+                )
+
+            [wp_users] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 65536
+                )
+
+        )
+
+    [varLowerCaseTables] => 2
+    [version] => 5.7.30
+    [versionComment] => MySQL Community Server (GPL)
+    [tableWiseRowCounts] => Array
+        (
+            [wp_commentmeta] => 0
+            [wp_comments] => 1
+            [wp_duplicator_pro_entities] => 5
+            [wp_duplicator_pro_packages] => 2
+            [wp_links] => 0
+            [wp_options] => 369
+            [wp_postmeta] => 90
+            [wp_posts] => 213
+            [wp_redirection_404] => 0
+            [wp_redirection_groups] => 2
+            [wp_redirection_items] => 1
+            [wp_redirection_logs] => 0
+            [wp_term_relationships] => 9
+            [wp_term_taxonomy] => 2
+            [wp_termmeta] => 0
+            [wp_terms] => 2
+            [wp_usermeta] => 28
+            [wp_users] => 1
+        )
+
+    [intFieldsStruct:DUP_PRO_DatabaseInfo:private] => Array
+        (
+        )
+
+    [indexProcessedSchemaSize:DUP_PRO_DatabaseInfo:private] => Array
+        (
+        )
+
+)
+
+
+********************************************************************************
+STORAGE:
+********************************************************************************
+LOCAL: Default, /Applications/MAMP/htdocs/base/wp-content/backups-dup-pro
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 1.11MB
+INSTALLER FILE: 73.88KB
+ARCHIVE FILE: 46.65MB 
+EXPECTED FILE/DIRECTORY COUNT: 21,762
+ACTUAL FILE/DIRECTORY COUNT: 21,788
+
+********************************************************************************
+RECORD ID:[2]
+TOTAL PROCESS RUNTIME: 11.288 sec.
+PEAK PHP MEMORY USED: 4.5MB
+DONE PROCESSING => 20210923_basetemplate 2021-09-23 18:24:55
+

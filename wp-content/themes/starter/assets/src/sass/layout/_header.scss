@@ -1,0 +1,216 @@
+/* =Header
+****************************************************************************************/
+.header {
+  position:relative;
+  width: 100%; 
+  z-index: 99;
+  background-color: white;
+  @media #{$above-large-device} {
+    position:relative;
+    display:table;
+  }
+
+  &.sticky-nav {
+    position: fixed;
+    top: 0;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left-side {
+      width: 50%;
+    }
+
+    &__right-side {
+      width: 50%;
+    }
+
+    .header-socials {
+      display: flex;
+      justify-content: flex-end;
+      &__item {
+        margin-right: 15px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .menu-container {
+    display:table;
+    width:100%;
+  }//head-contain
+
+  .logo {
+    display: block;
+    float: left;
+    padding: 0;
+    text-decoration: none;
+    max-width: 450px;
+
+    @media #{$above-large-device} {
+      padding-left: 0;
+    }
+    @media #{$large-device} {
+      max-width:250px;
+    }
+
+    @media #{$small} {
+      max-width: 200px;
+      padding: 0;
+    }
+  }
+
+ 
+
+  ul#menu-main-menu {
+    z-index: 99;
+    clear: none;
+    margin: auto;
+    max-height: none;
+    width: auto;
+    display: table;
+    
+    > li {
+      @media #{$above-large-device} {
+        float: left;
+        position: relative;
+        width: auto;
+        text-align: center;
+      }
+      &:hover, &.current-menu-item, &.current-page-ancestor {
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        transition:.25s all ease-in-out;
+
+        &:hover, &:focus {
+        }
+      }
+
+      ul {
+        display:none;
+
+        @media #{$above-large-device} {
+          position: absolute;
+          top: 100%;
+          min-width: 250px;
+          box-shadow: 0 0 5px rgba(0,0,0,0.25);
+        }
+        @media #{$large-device} {
+          width: 100%;
+        } 
+    
+        li {
+          display: table;
+          width: 100%;
+          clear: both;
+          padding-bottom: 0;
+
+          &:after {
+            display: none;
+          }
+
+          a {
+            transition:.25s all ease-in-out;
+            padding: 10px;
+            text-align: left;
+
+            @media #{$large-device} {
+              padding: 8px 35px;
+              text-align: left;
+            }
+            &:after {
+              display: inline;
+            }
+          }
+
+          &:last-child {
+            a {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: block;
+    float: right;
+    padding: 35px 15px;
+    position: relative;
+    user-select: none;
+
+    @media #{$above-large-device} {
+      display: none;
+    }
+
+    @media #{$large-device} {
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+
+    @media #{$small} {
+      padding: 30px 15px;
+    }
+
+    .navicon {
+      display: block;
+      height: 3px;
+      position: relative;
+      transition: all .2s ease-out;
+      width: 40px;
+
+      &:before, &:after {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+      }
+
+      &:before {
+        top: 14px;
+      }
+
+      &:after {
+        top: -14px;
+      }
+    }
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn:checked ~ .menu {
+    max-height: 650px!important;
+    overflow: scroll;
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+  }
+
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before, .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+}//header

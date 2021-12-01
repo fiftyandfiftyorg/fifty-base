@@ -1,0 +1,14 @@
+/* Mixins */
+@mixin pad-hit {
+	@media screen and (max-width:1420px) {
+		padding-left:15px;
+		padding-right:15px;
+	}
+}
+
+@mixin desktop-pad-hit {
+	@media screen and (min-width:769px) and (max-width:1420px) {
+		padding-left:15px;
+		padding-right:15px;
+	}
+}

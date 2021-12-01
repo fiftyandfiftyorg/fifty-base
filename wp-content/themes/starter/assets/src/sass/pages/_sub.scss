@@ -1,0 +1,25 @@
+/* =Subpages
+****************************************************************************************/
+.page-title {
+}
+
+#main-block {
+    position: relative;
+}
+
+.general-section {
+    position: relative;
+}
+
+.cms-banner {
+    .cb-background {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 550px;
+    }
+}
+
+.cms-content-container {
+    min-height: 600px;
+}

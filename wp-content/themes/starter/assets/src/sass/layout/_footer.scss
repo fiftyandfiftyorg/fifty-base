@@ -1,0 +1,37 @@
+/* =Footer
+****************************************************************************************/
+
+footer {
+  position: relative;
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+
+    &__left-side {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+    }
+
+    &__right-side {
+      width: 70%;
+    }
+
+    .footer-navigation {
+      display: flex;
+
+      & > ul {
+        display: flex;
+
+        li {
+          ul {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+
+}

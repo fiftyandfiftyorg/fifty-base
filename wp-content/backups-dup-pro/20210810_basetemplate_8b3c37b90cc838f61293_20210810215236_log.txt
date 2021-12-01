@@ -1,0 +1,208 @@
+********************************************************************************
+DUPLICATOR PRO PACKAGE-LOG: 2021-08-10 21:52:51
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	3.8.7.1
+WORDPRESS:	5.8
+PHP INFO:	7.4.9 | SAPI: apache2handler
+SERVER:		Apache/2.4.46 (Unix) OpenSSL/1.0.2u PHP/7.4.9 mod_wsgi/3.5 Python/2.7.13 mod_fastcgi/mod_fastcgi-SNAP-0910052141 mod_perl/2.0.11 Perl/v5.30.1 
+ARCHITECTURE:	64-bit 
+CLIENT KICKOFF: off 
+PHP TIME LIMIT: [7200] not allowed 
+PHP MAX MEMORY: 4294967296 (256M default) 
+RUN TYPE:	Manual
+MEMORY STACK:	6.5MB
+ARCHIVE ENGINE: Shell Zip
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP + CHUNKING (chunk size - 500 rows)
+
+TABLES: total: 14 | filtered:0 | create:14
+SCHEMA SIZE: [2015232]
+SQL CREATED: 20210810_basetemplate_8b3c37b90cc838f61293_20210810215236_database.sql
+SQL FILE SIZE: 1.08MB
+SQL FILE TIME: 2021-08-10 21:52:53
+SQL RUNTIME: 1.506 sec.
+MEMORY STACK: 8.5MB
+
+********************************************************************************
+ARCHIVE  Type=ZIP Mode=Shell
+********************************************************************************
+ARCHIVE DIR:  /Applications/MAMP/htdocs/base
+ARCHIVE FILE: 20210810_basetemplate_8b3c37b90cc838f61293_20210810215236_archive.zip
+FILTERS: *OFF*
+DIRS:  not set
+EXTS:  not set
+FILES:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	136.16MB
+STATS:	Dirs 2,698 | Files 18,887 | Total 21,585
+COMPRESSED SIZE: 44.5MB
+ARCHIVE RUNTIME: 7.508 sec.
+MEMORY STACK: 10.5MB
+DB INFO IN CREATE ARCHIV CONFIG
+DUP_PRO_DatabaseInfo Object
+(
+    [buildMode] => PHPCHUNKING
+    [charSetList] => Array
+        (
+            [0] => utf8mb4
+            [1] => utf8
+        )
+
+    [collationList] => Array
+        (
+            [0] => utf8mb4_unicode_520_ci
+            [1] => utf8_general_ci
+        )
+
+    [isTablesUpperCase] => 0
+    [isNameUpperCase] => 0
+    [name] => base
+    [tablesBaseCount] => 14
+    [tablesFinalCount] => 14
+    [tablesRowCount] => 729
+    [tablesSizeOnDisk] => 2015232
+    [tablesList] => Array
+        (
+            [wp_commentmeta] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 49152
+                )
+
+            [wp_comments] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 98304
+                )
+
+            [wp_duplicator_pro_entities] => stdClass Object
+                (
+                    [rows] => 5
+                    [size] => 32768
+                )
+
+            [wp_duplicator_pro_packages] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 32768
+                )
+
+            [wp_links] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 32768
+                )
+
+            [wp_options] => stdClass Object
+                (
+                    [rows] => 375
+                    [size] => 1146880
+                )
+
+            [wp_postmeta] => stdClass Object
+                (
+                    [rows] => 106
+                    [size] => 49152
+                )
+
+            [wp_posts] => stdClass Object
+                (
+                    [rows] => 205
+                    [size] => 278528
+                )
+
+            [wp_term_relationships] => stdClass Object
+                (
+                    [rows] => 8
+                    [size] => 32768
+                )
+
+            [wp_term_taxonomy] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 49152
+                )
+
+            [wp_termmeta] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 49152
+                )
+
+            [wp_terms] => stdClass Object
+                (
+                    [rows] => 2
+                    [size] => 49152
+                )
+
+            [wp_usermeta] => stdClass Object
+                (
+                    [rows] => 26
+                    [size] => 49152
+                )
+
+            [wp_users] => stdClass Object
+                (
+                    [rows] => 0
+                    [size] => 65536
+                )
+
+        )
+
+    [varLowerCaseTables] => 2
+    [version] => 5.7.30
+    [versionComment] => MySQL Community Server (GPL)
+    [tableWiseRowCounts] => Array
+        (
+            [wp_commentmeta] => 0
+            [wp_comments] => 1
+            [wp_duplicator_pro_entities] => 5
+            [wp_duplicator_pro_packages] => 1
+            [wp_links] => 0
+            [wp_options] => 375
+            [wp_postmeta] => 107
+            [wp_posts] => 213
+            [wp_term_relationships] => 9
+            [wp_term_taxonomy] => 2
+            [wp_termmeta] => 0
+            [wp_terms] => 2
+            [wp_usermeta] => 28
+            [wp_users] => 1
+        )
+
+    [intFieldsStruct:DUP_PRO_DatabaseInfo:private] => Array
+        (
+        )
+
+    [indexProcessedSchemaSize:DUP_PRO_DatabaseInfo:private] => Array
+        (
+        )
+
+)
+
+
+********************************************************************************
+STORAGE:
+********************************************************************************
+LOCAL: Default, /Applications/MAMP/htdocs/base/wp-content/backups-dup-pro
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 1.08MB
+INSTALLER FILE: 73.88KB
+ARCHIVE FILE: 46.38MB 
+EXPECTED FILE/DIRECTORY COUNT: 21,585
+ACTUAL FILE/DIRECTORY COUNT: 21,610
+
+********************************************************************************
+RECORD ID:[1]
+TOTAL PROCESS RUNTIME: 10.712 sec.
+PEAK PHP MEMORY USED: 6.5MB
+DONE PROCESSING => 20210810_basetemplate 2021-08-10 21:53:02
+

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+    * {
+        font-family: 'Lato', sans-serif;    }
+.max-width {width:100%;margin:auto;max-width:1200px;}
+.block.fixed-width {max-width:1200px;}
+.block-headline, .cms-content-container > p, .cms-content-container > span, .cms-content-container > em, .cms-content-container > ul, .cms-content-container > li, .cms-content-container > a, .cms-content-container > h1, .cms-content-container > h2, .cms-content-container > h3, .cms-content-container > h4, .cms-content-container > h5, .cms-content-container > h6 {
+    max-width:1200px;    margin-left: auto; 
+    margin-right: auto;
+}
+h1 {color:#d83131;font-size:50px;}
+h2 {color:#d83131;font-size:40px;}
+h3 {color:#d83131;font-size:35px;}
+h4 {color:#d83131;font-size:30px;}
+h5 {color:#d83131;font-size:25px;}
+h6 {color:#d83131;font-size:20px;}
+body, body p, body span, body ul, body li, body em {color:#3d3d3d;}
+a {color:#d83131;}
+button:not(.components-button) {padding:10px;color:#ffffff;background-color:#d83131;transition: .25s all ease-in-out;}
+button:not(.components-button):hover {color:#d83131;background-color:#000000;}
+
+header {
+     
+    padding:0px 0px 0px 0px;
+}
+header > nav {
+    background-color:#000000; 
+    padding:0px 0px 0px 0px;
+}
+header > nav a {
+    color:#ffffff;    background-color:#000000;    padding:15px 15px 15px 15px;
+}
+header > nav a:hover {
+    color:#ffffff;    background-color:#3d3d3d!important;}
+header > nav > ul > li > ul > li > a {
+    color:#ffffff;    background-color:#d83131!important;}
+header > nav > ul > li > ul > li > a:hover {
+    color:#ffffff;    background-color:#3d3d3d!important;}
+footer {
+    background-color:#000000;    color:#ffffff;    padding:40px 0px 40px 0px;
+}
+footer a {
+    color:#ffffff;}
+footer a:hover {
+    color:#d83131;}
