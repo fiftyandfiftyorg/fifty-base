@@ -313,25 +313,14 @@
 		$("html").addClass("opera");
 		}
 
-		// Navigation
-		$('.header li:has(ul) > a').click(function() {
-				if ($(this).parent().find('ul').is(":visible")) { 
-					$('.header li ul').hide();
-				} else {
-					$('.header li ul').hide();
-					$(this).parent().find('ul').slideToggle(200);
-				}
-				return false;
+		$(".hamburger").click(function(){
+			$(this).toggleClass("is-active");
+			$('nav > ul').toggleClass("show-mobile-menu");
 		});
 
-		$('html').click(function() {
-			//e.preventDefault();
-			$('.header li ul').hide();
+		$(".home-nav-search").click(function(){
+			$('.floating-search-bar').addClass("active-fsb");
 		});
-
-		$('.menu-icon').on('click', function() {
-			$('.form-backdrop').toggleClass('active-backdrop');
-	  	});
 
 		//Parallax Effect
 		$(window).on("load scroll", function() {
@@ -400,11 +389,12 @@
 
 		//sticky nav
 		$(window).bind('scroll', function () {
-			if ($(window).scrollTop() > 50) {
+			/*if ($(window).scrollTop() > 50) {
 				$('.header').addClass('sticky-nav');
 			} else {
 				$('.header').removeClass('sticky-nav');
 			}
+			*/
 		});
 		
 	});

@@ -53,11 +53,17 @@
         </div>
       <?php endif;?>
     </div>
+
+
+    <div id="hamburger-menu" class="hamburger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
   </div>
   <nav class="menu-container">
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <?php
+    
+      <?php
           wp_nav_menu( array(
             'theme_location'  => 'main-menu',
             'container'       => false,
