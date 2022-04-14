@@ -4,12 +4,15 @@
 * {
 	box-sizing: border-box;
 }
+
 html {
 	scroll-behavior: smooth;
 }
+
 [data-tip] {
 	position:relative;
 }
+
 [data-tip]:before {
 	content:'';
 	/* hides the tooltip when not hovered */
@@ -29,6 +32,7 @@ html {
 	width:0;
 	height:0;
 }
+
 [data-tip]:after {
 	display:none;
 	content:attr(data-tip);
@@ -51,6 +55,7 @@ html {
 	white-space:nowrap;
 	word-wrap:normal;
 }
+
 [data-tip]:hover:before,
 [data-tip]:hover:after {
 	display:table;

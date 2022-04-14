@@ -1,18 +1,5 @@
 /* =Useful Classes
 *******************************************************************************/
-.clearfix {
-    &:before, &:after{ content:""; display:table; }
-    &:after{ clear: both; }
-}
-
-.full-width {
-  width:100%;
-}
-
-.pad-hit {
-  @include pad-hit
-}
-
 .spacer-50 {
     display: table;
     height: 50px;
@@ -81,7 +68,6 @@
     }
 }
 
-
 //iframe stuff
 .iframe-video-section {
 	display:none!important;
@@ -94,10 +80,12 @@
 	display:block;
 	transition:.25s opacity ease-in-out;
 }
+
 .iframe-video-open {
 	display:block!important;
 	opacity:1;
 }
+
 .iframe-video {
 	position: relative;
 	padding-bottom: 56.25%;
@@ -110,6 +98,7 @@
 		width:90%;
 	}
 }
+
 #main-vid {
 	position: absolute;
 	top: 0; 
@@ -119,6 +108,7 @@
 	max-height:850px;
     z-index: 9991;
 }
+
 .modal-close,.vid-close {
 	position: absolute;
 	top: -35px;
@@ -135,6 +125,7 @@
 	font-family: arial;
 	font-weight: bold;
 }
+
 .modal-close {
     top: 0;
 }
@@ -142,7 +133,6 @@
 /*******************************************************************************/
 /*** SPACING & LAYOUT ***/
 /*******************************************************************************/
-
 .clearfix {
     &:before, &:after{ content:""; display:table; }
     &:after{ clear: both; }
@@ -186,7 +176,6 @@
     @include pad-hit;
 }
 
-
 /* =General Element Classes
 *******************************************************************************/
 .two-column {
@@ -194,18 +183,27 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+
     @media #{$small} {
         flex-direction: column;
         justify-content: center;
     }
+
     & > div {
         width: 48%;
         position: relative;
+
         @media #{$small} {
             width: 100%;
         }
     }
 }
+
+/* =Margin and Padding Classes – Increments of 5 from 0 to 100
+*******************************************************************************/
+// Example Usage => class="mx-auto" => margin left/right to auto
+// Example Usage => class="mb-100" => margin-bottom to 100px
+// Example Usage => class="pt-xs-20" => $mobile breakpoint padding-top to 20px
 
 $spaceamounts: ("auto", 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
 $sides: ("": "", "t": "top", "b": "bottom", "l": "left", "r": "right", "x": "left-right", "y": "top-bottom");
@@ -274,10 +272,22 @@ $breakpoints: (
                 }
             } @else {
                 @if $space == "auto" {
-                    .m#{$selector} {
-                        margin#{$property}: #{$space} !important;
+                    @if $sideName == "x" {
+                        .m#{$selector} {
+                            margin-left: #{$space} !important;
+                            margin-right: #{$space} !important;
+                        }
+                    } @else if $sideName == "y" {
+                        .m#{$selector} {
+                            margin-top: #{$space} !important;
+                            margin-bottom: #{$space} !important;
+                        }
+                    } @else {
+                        .m#{$selector} {
+                            margin#{$property}: #{$space} !important;
+                        }
                     }
-                } @else if $sideName == "x" {
+                }  @else if $sideName == "x" {
                     .mx-#{$space} {
                         margin-left: #{$space}px !important;
                         margin-right: #{$space}px !important;

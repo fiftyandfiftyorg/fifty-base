@@ -4,17 +4,20 @@ html,
 body {
     height: 100%;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     width: 100%;
     overflow-x: hidden;
 }
 
 a {
-    transition: .25s all ease-in-out;
+    @include basic-transition;
 }
+
 img {
     max-width: 100%;
     height: auto;

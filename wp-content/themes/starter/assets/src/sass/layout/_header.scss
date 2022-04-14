@@ -5,6 +5,7 @@
   width: 100%; 
   z-index: 99;
   background-color: white;
+
   @media #{$above-large-device} {
     position:relative;
     display:table;
@@ -55,6 +56,7 @@
     @media #{$above-large-device} {
       padding-left: 0;
     }
+
     @media #{$large-device} {
       max-width:250px;
     }
@@ -97,15 +99,18 @@
         width: auto;
         text-align: center;
       }
+
       &:hover, &.current-menu-item, &.current-page-ancestor {
+
       }
 
       a {
         display: block;
         text-decoration: none;
-        transition:.25s all ease-in-out;
+        @include basic-transition;
 
         &:hover, &:focus {
+
         }
       }
 
@@ -131,9 +136,9 @@
           &:after {
             display: none;
           }
-
+          
           a {
-            transition:.25s all ease-in-out;
+            @include basic-transition;
             padding: 10px;
             text-align: left;
 
@@ -215,6 +220,7 @@
   padding: 35px 15px;
   position: relative;
   user-select: none;
+
   @media #{$above-large-device} {
     display: none;
   }
@@ -229,6 +235,7 @@
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
+
   &:hover {
     cursor: pointer;
   }
