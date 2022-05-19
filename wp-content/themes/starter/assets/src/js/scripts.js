@@ -30,14 +30,14 @@
 	} else if ( typeof module == 'object' && module.exports ) {
 	  // CommonJS
 	  module.exports = factory(
-		require('flickity'),
-		require('fizzy-ui-utils')
+			require('flickity'),
+			require('fizzy-ui-utils')
 	  );
 	} else {
 	  // browser global
 	  factory(
-		window.Flickity,
-		window.fizzyUIUtils
+			window.Flickity,
+			window.fizzyUIUtils
 	  );
 	}
   
@@ -49,23 +49,23 @@
   
   var slideUpdateTarget = Slide.prototype.updateTarget;
   Slide.prototype.updateTarget = function() {
-	slideUpdateTarget.apply( this, arguments );
-	if ( !this.parent.options.fade ) {
-	  return;
-	}
-	// position cells at selected target
-	var slideTargetX = this.target - this.x;
-	var firstCellX = this.cells[0].x;
-	this.cells.forEach( function( cell ) {
-	  var targetX = cell.x - firstCellX - slideTargetX;
-	  cell.renderPosition( targetX );
-	});
+		slideUpdateTarget.apply( this, arguments );
+		if ( !this.parent.options.fade ) {
+			return;
+		}
+		// position cells at selected target
+		var slideTargetX = this.target - this.x;
+		var firstCellX = this.cells[0].x;
+		this.cells.forEach( function( cell ) {
+			var targetX = cell.x - firstCellX - slideTargetX;
+			cell.renderPosition( targetX );
+		});
   };
   
   Slide.prototype.setOpacity = function( alpha ) {
-	this.cells.forEach( function( cell ) {
-	  cell.element.style.opacity = alpha;
-	});
+		this.cells.forEach( function( cell ) {
+			cell.element.style.opacity = alpha;
+		});
   };
   
   // ---- Flickity ---- //
@@ -75,205 +75,214 @@
   Flickity.createMethods.push('_createFade');
   
   proto._createFade = function() {
-	this.fadeIndex = this.selectedIndex;
-	this.prevSelectedIndex = this.selectedIndex;
-	this.on( 'select', this.onSelectFade );
-	this.on( 'dragEnd', this.onDragEndFade );
-	this.on( 'settle', this.onSettleFade );
-	this.on( 'activate', this.onActivateFade );
-	this.on( 'deactivate', this.onDeactivateFade );
+		this.fadeIndex = this.selectedIndex;
+		this.prevSelectedIndex = this.selectedIndex;
+		this.on( 'select', this.onSelectFade );
+		this.on( 'dragEnd', this.onDragEndFade );
+		this.on( 'settle', this.onSettleFade );
+		this.on( 'activate', this.onActivateFade );
+		this.on( 'deactivate', this.onDeactivateFade );
   };
   
   var updateSlides = proto.updateSlides;
   proto.updateSlides = function() {
-	updateSlides.apply( this, arguments );
-	if ( !this.options.fade ) {
-	  return;
-	}
-	// set initial opacity
-	this.slides.forEach( function( slide, i ) {
-	  var alpha = i == this.selectedIndex ? 1 : 0;
-	  slide.setOpacity( alpha );
-	}, this );
+		updateSlides.apply( this, arguments );
+		if ( !this.options.fade ) {
+			return;
+		}
+		// set initial opacity
+		this.slides.forEach( function( slide, i ) {
+			var alpha = i == this.selectedIndex ? 1 : 0;
+			slide.setOpacity( alpha );
+		}, this );
   };
   
   /* ---- events ---- */
   
   proto.onSelectFade = function() {
-	// in case of resize, keep fadeIndex within current count
-	this.fadeIndex = Math.min( this.prevSelectedIndex, this.slides.length - 1 );
-	this.prevSelectedIndex = this.selectedIndex;
-  };
-  
-  proto.onSettleFade = function() {
-	delete this.didDragEnd;
-	if ( !this.options.fade ) {
-	  return;
-	}
-	// set full and 0 opacity on selected & faded slides
-	this.selectedSlide.setOpacity( 1 );
-	var fadedSlide = this.slides[ this.fadeIndex ];
-	if ( fadedSlide && this.fadeIndex != this.selectedIndex ) {
-	  this.slides[ this.fadeIndex ].setOpacity( 0 );
-	}
+		// in case of resize, keep fadeIndex within current count
+		this.fadeIndex = Math.min( this.prevSelectedIndex, this.slides.length - 1 );
+		this.prevSelectedIndex = this.selectedIndex;
+		};
+		
+		proto.onSettleFade = function() {
+		delete this.didDragEnd;
+		if ( !this.options.fade ) {
+			return;
+		}
+		// set full and 0 opacity on selected & faded slides
+		this.selectedSlide.setOpacity( 1 );
+		var fadedSlide = this.slides[ this.fadeIndex ];
+		if ( fadedSlide && this.fadeIndex != this.selectedIndex ) {
+			this.slides[ this.fadeIndex ].setOpacity( 0 );
+		}
   };
   
   proto.onDragEndFade = function() {
-	// set flag
-	this.didDragEnd = true;
+		// set flag
+		this.didDragEnd = true;
   };
   
   proto.onActivateFade = function() {
-	if ( this.options.fade ) {
-	  this.element.classList.add('is-fade');
-	}
+		if ( this.options.fade ) {
+			this.element.classList.add('is-fade');
+		}
   };
   
   proto.onDeactivateFade = function() {
-	if ( !this.options.fade ) {
-	  return;
-	}
-	this.element.classList.remove('is-fade');
-	// reset opacity
-	this.slides.forEach( function( slide ) {
-	  slide.setOpacity('');
-	});
+		if ( !this.options.fade ) {
+			return;
+		}
+		this.element.classList.remove('is-fade');
+		// reset opacity
+		this.slides.forEach( function( slide ) {
+			slide.setOpacity('');
+		});
   };
   
   /* ---- position & fading ---- */
   
   var positionSlider = proto.positionSlider;
   proto.positionSlider = function() {
-	if ( !this.options.fade ) {
-	  positionSlider.apply( this, arguments );
-	  return;
-	}
-  
-	this.fadeSlides();
-	this.dispatchScrollEvent();
+		if ( !this.options.fade ) {
+			positionSlider.apply( this, arguments );
+			return;
+		}
+		
+		this.fadeSlides();
+		this.dispatchScrollEvent();
   };
   
   var positionSliderAtSelected = proto.positionSliderAtSelected;
   proto.positionSliderAtSelected = function() {
-	if ( this.options.fade ) {
-	  // position fade slider at origin
-	  this.setTranslateX( 0 );
-	}
-	positionSliderAtSelected.apply( this, arguments );
+		if ( this.options.fade ) {
+			// position fade slider at origin
+			this.setTranslateX( 0 );
+		}
+
+		positionSliderAtSelected.apply( this, arguments );
   };
   
   proto.fadeSlides = function() {
-	if ( this.slides.length < 2 ) {
-	  return;
-	}
-	// get slides to fade-in & fade-out
-	var indexes = this.getFadeIndexes();
-	var fadeSlideA = this.slides[ indexes.a ];
-	var fadeSlideB = this.slides[ indexes.b ];
-	var distance = this.wrapDifference( fadeSlideA.target, fadeSlideB.target );
-	var progress = this.wrapDifference( fadeSlideA.target, -this.x );
-	progress = progress / distance;
-  
-	fadeSlideA.setOpacity( 1 - progress );
-	fadeSlideB.setOpacity( progress );
-  
-	// hide previous slide
-	var fadeHideIndex = indexes.a;
-	if ( this.isDragging ) {
-	  fadeHideIndex = progress > 0.5 ? indexes.a : indexes.b;
-	}
-	var isNewHideIndex = this.fadeHideIndex != undefined &&
-	  this.fadeHideIndex != fadeHideIndex &&
-	  this.fadeHideIndex != indexes.a &&
-	  this.fadeHideIndex != indexes.b;
-	if ( isNewHideIndex ) {
-	  // new fadeHideSlide set, hide previous
-	  this.slides[ this.fadeHideIndex ].setOpacity( 0 );
-	}
-	this.fadeHideIndex = fadeHideIndex;
+		if ( this.slides.length < 2 ) {
+			return;
+		}
+		// get slides to fade-in & fade-out
+		var indexes = this.getFadeIndexes();
+		var fadeSlideA = this.slides[ indexes.a ];
+		var fadeSlideB = this.slides[ indexes.b ];
+		var distance = this.wrapDifference( fadeSlideA.target, fadeSlideB.target );
+		var progress = this.wrapDifference( fadeSlideA.target, -this.x );
+		progress = progress / distance;
+		
+		fadeSlideA.setOpacity( 1 - progress );
+		fadeSlideB.setOpacity( progress );
+		
+		// hide previous slide
+		var fadeHideIndex = indexes.a;
+
+		if ( this.isDragging ) {
+			fadeHideIndex = progress > 0.5 ? indexes.a : indexes.b;
+		}
+		
+		var isNewHideIndex = this.fadeHideIndex != undefined &&
+			this.fadeHideIndex != fadeHideIndex &&
+			this.fadeHideIndex != indexes.a &&
+			this.fadeHideIndex != indexes.b;
+
+		if ( isNewHideIndex ) {
+			// new fadeHideSlide set, hide previous
+			this.slides[ this.fadeHideIndex ].setOpacity( 0 );
+		}
+
+		this.fadeHideIndex = fadeHideIndex;
   };
   
   proto.getFadeIndexes = function() {
-	if ( !this.isDragging && !this.didDragEnd ) {
-	  return {
-		a: this.fadeIndex,
-		b: this.selectedIndex,
-	  };
-	}
-	if ( this.options.wrapAround ) {
-	  return this.getFadeDragWrapIndexes();
-	} else {
-	  return this.getFadeDragLimitIndexes();
-	}
+		if ( !this.isDragging && !this.didDragEnd ) {
+			return {
+				a: this.fadeIndex,
+				b: this.selectedIndex,
+			};
+		}
+
+		if ( this.options.wrapAround ) {
+			return this.getFadeDragWrapIndexes();
+		} else {
+			return this.getFadeDragLimitIndexes();
+		}
   };
   
   proto.getFadeDragWrapIndexes = function() {
-	var distances = this.slides.map( function( slide, i ) {
-	  return this.getSlideDistance( -this.x, i );
-	}, this );
-	var absDistances = distances.map( function( distance ) {
-	  return Math.abs( distance );
-	});
-	var minDistance = Math.min.apply( Math, absDistances );
-	var closestIndex = absDistances.indexOf( minDistance );
-	var distance = distances[ closestIndex ];
-	var len = this.slides.length;
-  
-	var delta = distance >= 0 ? 1 : -1;
-	return {
-	  a: closestIndex,
-	  b: utils.modulo( closestIndex + delta, len ),
-	};
+		var distances = this.slides.map( function( slide, i ) {
+			return this.getSlideDistance( -this.x, i );
+		}, this );
+		var absDistances = distances.map( function( distance ) {
+			return Math.abs( distance );
+		});
+		var minDistance = Math.min.apply( Math, absDistances );
+		var closestIndex = absDistances.indexOf( minDistance );
+		var distance = distances[ closestIndex ];
+		var len = this.slides.length;
+		
+		var delta = distance >= 0 ? 1 : -1;
+		return {
+			a: closestIndex,
+			b: utils.modulo( closestIndex + delta, len ),
+		};
   };
   
   proto.getFadeDragLimitIndexes = function() {
-	// calculate closest previous slide
-	var dragIndex = 0;
-	for ( var i=0; i < this.slides.length - 1; i++ ) {
-	  var slide = this.slides[i];
-	  if ( -this.x < slide.target ) {
-		break;
-	  }
-	  dragIndex = i;
-	}
-	return {
-	  a: dragIndex,
-	  b: dragIndex + 1,
-	};
+		// calculate closest previous slide
+		var dragIndex = 0;
+		for ( var i=0; i < this.slides.length - 1; i++ ) {
+			var slide = this.slides[i];
+			if ( -this.x < slide.target ) {
+				break;
+			}
+			dragIndex = i;
+		}
+		return {
+			a: dragIndex,
+			b: dragIndex + 1,
+		};
   };
   
   proto.wrapDifference = function( a, b ) {
-	var diff = b - a;
-  
-	if ( !this.options.wrapAround ) {
-	  return diff;
-	}
-  
-	var diffPlus = diff + this.slideableWidth;
-	var diffMinus = diff - this.slideableWidth;
-	if ( Math.abs( diffPlus ) < Math.abs( diff ) ) {
-	  diff = diffPlus;
-	}
-	if ( Math.abs( diffMinus ) < Math.abs( diff ) ) {
-	  diff = diffMinus;
-	}
-	return diff;
+		var diff = b - a;
+		
+		if ( !this.options.wrapAround ) {
+			return diff;
+		}
+		
+		var diffPlus = diff + this.slideableWidth;
+		var diffMinus = diff - this.slideableWidth;
+		
+		if ( Math.abs( diffPlus ) < Math.abs( diff ) ) {
+			diff = diffPlus;
+		}
+
+		if ( Math.abs( diffMinus ) < Math.abs( diff ) ) {
+			diff = diffMinus;
+		}
+
+		return diff;
   };
   
   // ---- wrapAround ---- //
   
   var _getWrapShiftCells = proto._getWrapShiftCells;
   proto._getWrapShiftCells = function() {
-	if ( !this.options.fade ) {
-	  _getWrapShiftCells.apply( this, arguments );
-	}
+		if ( !this.options.fade ) {
+			_getWrapShiftCells.apply( this, arguments );
+		}
   };
   
   var shiftWrapCells = proto.shiftWrapCells;
   proto.shiftWrapCells = function() {
-	if ( !this.options.fade ) {
-	  shiftWrapCells.apply( this, arguments );
-	}
+		if ( !this.options.fade ) {
+			shiftWrapCells.apply( this, arguments );
+		}
   };
   
   return Flickity;
@@ -290,96 +299,94 @@
 
 	'use strict';
 
-	$(document).ready(function() {
+	$(function() {
 		//Device Agent class assignment
 		var deviceAgent = navigator.userAgent.toLowerCase();
+
 		if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
-		$("html").addClass("ios");
-		$("html").addClass("mobile");
-		}
-		if (navigator.userAgent.search("MSIE") >= 0) {
-		$("html").addClass("ie");
-		}
-		else if (navigator.userAgent.search("Chrome") >= 0) {
-		$("html").addClass("chrome");
-		}
-		else if (navigator.userAgent.search("Firefox") >= 0) {
-		$("html").addClass("firefox");
-		}
-		else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-		$("html").addClass("safari");
-		}
-		else if (navigator.userAgent.search("Opera") >= 0) {
-		$("html").addClass("opera");
+			$("html").addClass("ios");
+			$("html").addClass("mobile");
 		}
 
-		$(".hamburger").click(function(){
+		if (navigator.userAgent.search("MSIE") >= 0) {
+			$("html").addClass("ie");
+		} else if (navigator.userAgent.search("Chrome") >= 0) {
+			$("html").addClass("chrome");
+		} else if (navigator.userAgent.search("Firefox") >= 0) {
+			$("html").addClass("firefox");
+		} else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+			$("html").addClass("safari");
+		} else if (navigator.userAgent.search("Opera") >= 0) {
+			$("html").addClass("opera");
+		}
+
+		$(".hamburger").on('click', function(){
 			$(this).toggleClass("is-active");
 			$('nav > ul').toggleClass("show-mobile-menu");
 		});
 
-		$(".home-nav-search").click(function(){
+		$(".home-nav-search").on('click', function(){
 			$('.floating-search-bar').addClass("active-fsb");
 		});
 
 		//Parallax Effect
 		$(window).on("load scroll", function() {
 			var parallaxElement = $(".parallax_scroll"),
-			  parallaxQuantity = parallaxElement.length;
-				window.requestAnimationFrame(function() {
-			  for (var i = 0; i < parallaxQuantity; i++) {
-				var currentElement = parallaxElement.eq(i),
-				  windowTop = $(window).scrollTop(),
-				  elementTop = currentElement.offset().top,
-				  elementHeight = currentElement.height(),
-				  viewPortHeight = window.innerHeight * 0.5 - elementHeight * 0.5,
-				  scrolled = windowTop - elementTop + viewPortHeight;
-				currentElement.css({
-				  transform: "translate3d(0," + scrolled * -0.25 + "px, 0)"
-				});
-			  }
+				parallaxQuantity = parallaxElement.length;
+			window.requestAnimationFrame(function() {
+				for (var i = 0; i < parallaxQuantity; i++) {
+					var currentElement = parallaxElement.eq(i),
+						windowTop = $(window).scrollTop(),
+						elementTop = currentElement.offset().top,
+						elementHeight = currentElement.height(),
+						viewPortHeight = window.innerHeight * 0.5 - elementHeight * 0.5,
+						scrolled = windowTop - elementTop + viewPortHeight;
+					currentElement.css({
+						transform: "translate3d(0," + scrolled * -0.25 + "px, 0)"
+					});
+				}
 			});
-		  });
+		});
 
 		//toggle tabs
-		$('.toggler-options a').click(function(e){
-            e.preventDefault();
-            $('.toggler-options a').removeClass('active-option');
-            $(this).addClass('active-option');
-            var grabID = $(this).attr('href'); 
-            $('.hubbox-block__content > div').removeClass('active-option');
-            $('.hubbox-block__content > div' + grabID).addClass('active-option');
-        });
+		$('.toggler-options a').on('click', function(e){
+			e.preventDefault();
+			$('.toggler-options a').removeClass('active-option');
+			$(this).addClass('active-option');
+			var grabID = $(this).attr('href'); 
+			$('.hubbox-block__content > div').removeClass('active-option');
+			$('.hubbox-block__content > div' + grabID).addClass('active-option');
+		});
 
 		//progress bar
 		$('.percentage-bar').each(function() {
 			var barLevel = $(this).data('level');
-			  $(this).animate({
-				  width: barLevel
-			  });
-		  });
+			$(this).animate({
+				width: barLevel
+			});
+		});
 
 		//general modal - data
-		$('.modal-link').click(function(e){
+		$('.modal-link').on('click', function(e){
 			e.preventDefault();
 			var grabID = $(this).attr('href'); 
 			$('.form-backdrop').addClass('active-backdrop');
 			$('.modal-window' + grabID).addClass('show-modal');
-	  	});
+		});
 
 
 		//general modal - video
-		$('.video-link').click(function(e){
+		$('.video-link').on('click', function(e){
 			e.preventDefault();
 			var src = $(this).attr('data-video');
 			$('.iframe-video-section').addClass('iframe-video-open');
 			$('.form-backdrop').addClass('active-backdrop');
 			$('#main-vid').attr('src','https://www.youtube.com/embed/' + src + '?autoplay=1');
 			return false;
-	  	});
+		});
 
 		//close modal
-		$('.form-backdrop, .vid-close, .modal-close').click(function() {
+		$('.form-backdrop, .vid-close, .modal-close').on('click', function() {
 			$('.modal-window').removeClass('show-modal');
 			$('.iframe-video-section').removeClass('iframe-video-open');
 			$('.form-backdrop').removeClass('active-backdrop');
@@ -387,8 +394,28 @@
 			$('#main-vid').attr('src','https://www.youtube.com/embed/' + src + '?autoplay=0');
 		});
 
+		//disable body scroll when modal is active
+		//works best on full width modals as body will not scroll unless modal-close is clicked
+		// let body = document.querySelector('body');
+	
+		// $('.modal-link').on('click', function() {
+		// 	var modal_id = $(this).attr('href');
+		// 	var modal = document.querySelector(modal_id);
+	
+		// 	if (!modal.classList.contains('show-modal')) {
+		// 			body.style.overflow = 'hidden';
+		// 	} else {
+		// 			body.style.overflow = 'auto';
+		// 	}
+		// })
+	
+		//enable body scroll when modal is closed
+		// $('.modal-close').on('click', function() { 
+		// 	body.style.overflow = 'auto';
+		// })
+
 		//sticky nav
-		$(window).bind('scroll', function () {
+		$(window).on('scroll', function () {
 			/*if ($(window).scrollTop() > 50) {
 				$('.header').addClass('sticky-nav');
 			} else {
@@ -399,4 +426,4 @@
 		
 	});
 
-}(jQuery));
+});
