@@ -24,7 +24,7 @@ h1, .h1 {
 	@include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 4em); // Multiple properties
 }
 
-Works with rem and em. All format type within a single include must be the same.
+Also works with rem. All format type within a single @include must be the same.
 
 Credit: https://www.sassmeister.com/gist/7f22e44ace49b5124eec
 *******************************************************************************/
@@ -47,14 +47,15 @@ Credit: https://www.sassmeister.com/gist/7f22e44ace49b5124eec
   @return $number;
 }
 
+
 /**
  * Transitions
  */
 $basic-transition: '.25s all ease-in-out';
 
-@mixin basic-transition( $basic-transition... ) {
-  -webkit-transition: $transition;
-  -moz-transition: $transition;
-  -o-transition: $transition;
-  transition: $transition;
+@mixin basic-transition {
+  -webkit-transition: $basic-transition;
+  -moz-transition: $basic-transition;
+  -o-transition: $basic-transition;
+  transition: $basic-transition;
 }
