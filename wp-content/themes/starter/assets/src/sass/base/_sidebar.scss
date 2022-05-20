@@ -1,0 +1,41 @@
+#sidebar {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  ul {
+    list-style: none;
+
+    #block-4 {
+      display: none;
+    }  
+
+    &.xoxo {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    & > * {
+      margin-bottom: 20px;
+    }
+    
+    &.wp-block-latest-posts {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
+
+  label {
+    @extend .h3;
+  }
+
+  input[type="search"] {
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 10px;
+  }
+
+  // button[type="submit"] {
+  //   @extend .button-light-green;
+  // }
+}
