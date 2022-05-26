@@ -1,0 +1,79 @@
+h1, .h1 {
+  font-family: $font-secondary;
+  font-weight: $font-weight;
+  @include fluid-type(font-size, 44px, 56px); 
+	@include fluid-type(line-height, 48px, 64px); 
+}
+
+h2, .h2 {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  @include fluid-type(font-size, 32px, 40px); 
+	@include fluid-type(line-height, 36px, 44px); 
+}
+
+.h2-alt {
+  @extend .h2;
+  font-family: $font-secondary;
+}
+
+h3, .h3 {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  @include fluid-type(font-size, 22px, 24px); 
+	@include fluid-type(line-height, 28px, 32px); 
+}
+
+h4, .h4 {
+  font-family: $font-secondary;
+  font-weight: $font-weight;
+  @include fluid-type(font-size, 22px, 24px); 
+	@include fluid-type(line-height, 28px, 32px); 
+}
+
+h5, .h5 {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  @include fluid-type(font-size, 18px, 20px); 
+	@include fluid-type(line-height, 24px, 28px); 
+}
+
+h6, .h6 {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+p, .p {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+figcaption, .caption {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+a  {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.btn-text {
+  font-family: $font-primary;
+  font-weight: $font-weight;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+span {
+  font-family: inherit;
+}

@@ -1,0 +1,139 @@
+{
+    "key": "group_61b2af8a322e7",
+    "title": "Simple CTA - Options",
+    "fields": [
+        {
+            "key": "field_61b2b0398170c",
+            "label": "Heading",
+            "name": "simple_cta_heading",
+            "type": "text",
+            "instructions": "Leave blank to hide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61b2b07d8170d",
+            "label": "Content",
+            "name": "simple_cta_content",
+            "type": "textarea",
+            "instructions": "Leave blank to hide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_61b2b1b0e5233",
+            "label": "Button Text",
+            "name": "simple_cta_btn_text",
+            "type": "text",
+            "instructions": "Leave blank to hide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61b2b0a98170e",
+            "label": "Button URL",
+            "name": "simple_cta_btn_url",
+            "type": "url",
+            "instructions": "Start with https:\/\/",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61b2b1b0e5233",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_61b2b22d6bcbf",
+            "label": "Button Target",
+            "name": "simple_cta_btn_target",
+            "type": "radio",
+            "instructions": "Will this button direct to an external page (outside of your website)?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61b2b1b0e5233",
+                        "operator": "!=empty"
+                    },
+                    {
+                        "field": "field_61b2b0a98170e",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Yes",
+                "no": "No"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/simple-cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1639104878
+}

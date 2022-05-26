@@ -1,0 +1,41 @@
+.htaccess
+*~
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+
+# static build specifici
+/app/node_modules/
+/app/.sass-cache/
+
+# wordpress specific
+wp-config.php
+wp-content/blogs.dir/
+wp-content/upgrade/*
+wp-content/backup-db/*
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/*
+wp-content/cache/supercache/*
+
+# theme specific
+wp-content/themes/**/node_modules
+wp-content/themes/**/.sass-cache
+
+# wp core
+/db-config.php
+/license.txt
+/readme.html
+/wp-app.php
+/wp-atom.php
+/wp-commentsrss2.php
+/wp-feed.php
+/wp-rdf.php
+/wp-rss.php
+/wp-rss2.php
+/wp-pass.php
+/wp-register.php
+/wp-content/themes/twenty*
