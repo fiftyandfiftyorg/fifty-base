@@ -423,6 +423,37 @@
 			}
 			*/
 		});
+
+		//hides nav on scroll down, shows nav on scroll up
+		// var didScroll = false;
+
+		// $(window).on('scroll', function() {
+		// 	didScroll = true;
+		// });
+
+		// // interval scroll handler
+		// setInterval(function() {
+		// if ( didScroll ) {
+		// 	didScroll = false;
+		// 	scrolled();
+		// }
+		// }, 250);
+
+		// var lastScrollTop = 300;
+
+		// function scrolled() {
+		// 	var scrollStatus = window.pageYOffset;
+
+		// 	console.log(scrollStatus);
+
+		// 	if (scrollStatus < lastScrollTop) {
+		// 		$('.header').removeClass('hide-nav'); 
+		// 	} else if ( lastScrollTop >= 300) {
+		// 		$('.header').addClass('hide-nav');
+		// 	}
+
+		// 	lastScrollTop = scrollStatus;
+		// }
 		
 	});
 

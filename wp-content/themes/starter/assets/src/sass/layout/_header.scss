@@ -16,6 +16,11 @@
     top: 0;
   }
 
+  &.hide-nav {
+    top: -80px;
+    transition: .25s top ease;
+  }
+
   .header-container {
     display: flex;
     justify-content: space-between;
