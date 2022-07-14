@@ -14,7 +14,7 @@
 
 .hide-mobile {
     @media #{$small} {
-        display: none!important;
+        display: none !important;
     }
 }
 
@@ -140,12 +140,6 @@
 
 .full-width {
     width: 100%;
-}
-
-.max-width {
-	width: 100%;
-	//max-width: 1400px;
-	margin: 0 auto;
 }
 
 .d-table {
@@ -319,13 +313,4 @@ $breakpoints: (
             }
         }
     }
-}
-
-/*******************************************************************************/
-/*** ANIMATIONS ***/
-/*******************************************************************************/
-
-.fadein {
-	-webkit-animation: fadein 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-	  animation: fadein 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
